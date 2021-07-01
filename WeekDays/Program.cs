@@ -13,32 +13,39 @@ namespace WeekDays
         static void Main(string[] args)
         {
             string[] weekArray = new string[7];
-            Console.WriteLine("Inserisci i giorni della settimana:\n(lun - mar - merc - gio - ven - sab - dom)\n");
-            InsertDays(ref weekArray);
-            
-            
-            void InsertDays(ref string[] weekArray)
+            Console.WriteLine("Inserisci i giorni della settimana:\n(lun - mart - merc - gio - ven - sab - dom)\n");
+            for (int i = 0; i < weekArray.Length; i++)
             {
-                int i = -1;
-                do
+                Console.WriteLine("Inserisci un giorno della settimana");
+                string temp = Console.ReadLine();
+                CheckDay(weekArray, i, ref temp);
+                weekArray[i] = temp;
+                for (int k = 0; k < weekArray.Length; k++)
                 {
-                    i++;
-                    Console.WriteLine("Inserisci un giorno della settimana");
-                    weekArray[i] = Console.ReadLine();
-                    if (i > 0)
-                    {
-                        for (int j = 0; j < i; j++)
-                        {
-                            while (weekArray[i] != weekArray[j])
-                            {
-                                Console.WriteLine("Giorno della settimana già inserito!\nInserisci un giorno della settimana");
-                                weekArray[i] = Console.ReadLine();
-                            }
-                        }
-                    }
-                } while (i < weekArray.Length);
-            }
+                    Console.Write(weekArray[k] + " ");
+                }
+                
 
+            } 
+
+            // Routine
+            void CheckDay(string[] weekArray, int i, ref string temp )
+            {
+                for(int j = 0; j <= i; j++)
+
+                {
+                    while (weekArray[j] != weekArray[i])
+                    {
+                        Console.WriteLine("Giorno già inserito!");
+                        Console.WriteLine("Inserisci un giorno della settimana");
+                        temp = Console.ReadLine();
+                    }
+                }
+
+            }
+            
         }
+
     }
 }
+
